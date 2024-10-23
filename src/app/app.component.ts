@@ -17,7 +17,7 @@ export class AppComponent {
     this.hide = !this.hide;
   }
 
-  /** auto update of app */
+  /** app update */
   swUpdate = inject(SwUpdate);
   constructor() {
     if (this.swUpdate.isEnabled) {
@@ -29,10 +29,12 @@ export class AppComponent {
       })
     }
   }
+  /** auto update */
   activateUpdate() {
     this.swUpdate.activateUpdate().then(() => document.location.reload());
   }
 
+  /** manual update */
   updateAvailable = false;
   reloadApp(): void {
     this.swUpdate.activateUpdate().then(() => document.location.reload());
