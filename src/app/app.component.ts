@@ -17,17 +17,24 @@ export class AppComponent {
     this.hide = !this.hide;
   }
 
+  /** auto update of app */
   swUpdate = inject(SwUpdate);
   constructor() {
     if (this.swUpdate.isEnabled) {
       this.swUpdate.versionUpdates.subscribe((event) => {
         if (event.type === 'VERSION_READY') {
-          this.activateUpdate();
+          // this.activateUpdate();
+          this.updateAvailable = true;
         }
       })
     }
   }
   activateUpdate() {
+    this.swUpdate.activateUpdate().then(() => document.location.reload());
+  }
+
+  updateAvailable = false;
+  reloadApp(): void {
     this.swUpdate.activateUpdate().then(() => document.location.reload());
   }
 }

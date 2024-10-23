@@ -4,5 +4,11 @@
   <img src="assets/img/good.gif" alt="">
   }
   <button (click)="show()">{{hide?'ДУМАЮ ХВАТИТ':'ПОСЛАТЬ'}}</button>
+  @if(updateAvailable){
+  <div class="update">
+    <p>Доступна новая версия</p>
+    <button (click)="reloadApp()">Обновить</button>
+  </div>
+  }
 </div>
 <router-outlet />
