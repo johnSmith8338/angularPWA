@@ -1,0 +1,16 @@
+:host {
+    display: grid;
+    place-items: center;
+    height: 100%;
+}
+
+h3 {
+    margin: 0;
+    text-align: center;
+}
+
+.content {
+    display: grid;
+    justify-content: center;
+    gap: 24px;
+}
