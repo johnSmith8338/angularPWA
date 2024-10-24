@@ -23,8 +23,8 @@ export class AppComponent {
     if (this.swUpdate.isEnabled) {
       this.swUpdate.versionUpdates.subscribe((event) => {
         if (event.type === 'VERSION_READY') {
-          // this.activateUpdate();
-          this.updateAvailable = true;
+          this.activateUpdate();
+          // this.updateAvailable = true;
         }
       })
     }
