@@ -20,3 +20,20 @@ This will install all necessary dependencies including manifest and ngsw-config 
 1) in address line: chome://apps
 2) right click on app icon
 3) select 'Launch at startup'
+
+## Apply app update
+
+Make sure that Angular Service Worker provided in project
+In app.config.ts:
+
+export const appConfig: ApplicationConfig = {
+  providers: [provideRouter(routes), provideServiceWorker('ngsw-worker.js', {
+    enabled: environment.production,
+    registrationStrategy: 'registerWhenStable:30000'
+  })]
+};
+
+
+### Auto
+
+
