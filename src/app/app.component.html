@@ -1,13 +1,20 @@
 <div class="content">
-  <h3>Всем лучи добра!!!</h3>
+  <h3>Всем лучи добра</h3>
   @if(hide){
   <img src="assets/img/good.gif" alt="">
   }
   <button (click)="show()">{{hide?'ДУМАЮ ХВАТИТ':'ПОСЛАТЬ'}}</button>
-  @if(updateAvailable){
-  <div class="update">
+  @if(updateAvailable()){
+  <!-- <div class="update">
     <p>Доступна новая версия</p>
     <button (click)="reloadApp()">Обновить</button>
+  </div> -->
+
+  <div class="progress-wrapper">
+    <div class="progress-container">
+      <div class="progress-bar" [style.width.%]="progress()"></div>
+      <p>Загрузка обновлений {{estimatedTime()}} секунд...</p>
+    </div>
   </div>
   }
 </div>
