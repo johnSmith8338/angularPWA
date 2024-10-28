@@ -1,0 +1,61 @@
+[debug] [2024-10-28T14:17:45.287Z] ----------------------------------------------------------------------
+[debug] [2024-10-28T14:17:45.291Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\TZ\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-10-28T14:17:45.291Z] CLI Version:   13.23.0
+[debug] [2024-10-28T14:17:45.291Z] Platform:      win32
+[debug] [2024-10-28T14:17:45.292Z] Node Version:  v20.10.0
+[debug] [2024-10-28T14:17:45.292Z] Time:          Mon Oct 28 2024 16:17:45 GMT+0200 (Восточная Европа, стандартное время)
+[debug] [2024-10-28T14:17:45.292Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-10-28T14:17:45.371Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-10-28T14:17:45.371Z] > authorizing via signed-in user (john.smith.dm8338@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\angularPWA
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-10-28T14:17:52.140Z] Using project from CLI flag: angularpwa-68192
+[debug] [2024-10-28T14:17:52.141Z] Checked if tokens are valid: true, expires at: 1730128509470
+[debug] [2024-10-28T14:17:52.141Z] Checked if tokens are valid: true, expires at: 1730128509470
+[debug] [2024-10-28T14:17:52.143Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/angularpwa-68192 [none]
+[debug] [2024-10-28T14:17:52.645Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/angularpwa-68192 200
+[debug] [2024-10-28T14:17:52.645Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/angularpwa-68192 {"projectId":"angularpwa-68192","projectNumber":"508876035608","displayName":"angularPWA","name":"projects/angularpwa-68192","resources":{"hostingSite":"angularpwa-68192"},"state":"ACTIVE","etag":"1_c285e93c-95d9-4218-a7f8-2b28a885ef4c"}
+[info] i  Using project angularpwa-68192 (angularPWA) 
+[info] 
+=== Hosting Setup
+[debug] [2024-10-28T14:17:52.655Z] Checked if tokens are valid: true, expires at: 1730128509470
+[debug] [2024-10-28T14:17:52.655Z] Checked if tokens are valid: true, expires at: 1730128509470
+[debug] [2024-10-28T14:17:52.655Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/angularpwa-68192 [none]
+[debug] [2024-10-28T14:17:52.881Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/angularpwa-68192 200
+[debug] [2024-10-28T14:17:52.881Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/angularpwa-68192 {"projectId":"angularpwa-68192","projectNumber":"508876035608","displayName":"angularPWA","name":"projects/angularpwa-68192","resources":{"hostingSite":"angularpwa-68192"},"state":"ACTIVE","etag":"1_c285e93c-95d9-4218-a7f8-2b28a885ef4c"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[debug] [2024-10-28T14:18:34.188Z] Error: ENOTDIR: not a directory, scandir 'D:\angularPWA\dist\angular-pwa\browser\index.html'
+    at Object.readdirSync (node:fs:1514:26)
+    at Object.createFileSync (C:\Users\TZ\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\fs-extra\lib\ensure\file.js:55:10)
+    at Config.writeProjectFile (C:\Users\TZ\AppData\Roaming\npm\node_modules\firebase-tools\lib\config.js:159:12)
+    at C:\Users\TZ\AppData\Roaming\npm\node_modules\firebase-tools\lib\config.js:193:22
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async doSetup (C:\Users\TZ\AppData\Roaming\npm\node_modules\firebase-tools\lib\init\features\hosting\index.js:173:13)
+    at async init (C:\Users\TZ\AppData\Roaming\npm\node_modules\firebase-tools\lib\init\index.js:41:9)
+[error] 
+[error] Error: An unexpected error has occurred.

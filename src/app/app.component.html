@@ -1,3 +1,4 @@
+@defer (on timer(3s)) {
 <div class="content">
   <h3>Всем лучи добра</h3>
   @if(hide){
@@ -6,16 +7,22 @@
   <button (click)="show()">{{hide?'ДУМАЮ ХВАТИТ':'ПОСЛАТЬ'}}</button>
   @if(updateAvailable()){
   <!-- <div class="update">
-    <p>Доступна новая версия</p>
-    <button (click)="reloadApp()">Обновить</button>
-  </div> -->
+      <p>Доступна новая версия</p>
+      <button (click)="reloadApp()">Обновить</button>
+    </div> -->
 
   <div class="progress-wrapper">
     <div class="progress-container">
       <div class="progress-bar" [style.width.%]="progress()"></div>
-      <p>Загрузка обновлений {{estimatedTime()}} секунд...</p>
+      <p>Загрузка обновлений, осталось {{estimatedTime()}} секунд</p>
     </div>
   </div>
   }
 </div>
+}
+@loading(minimum 2s) {
+<div class="content">
+  <p>Загрузка...</p>
+</div>
+}
 <router-outlet />
