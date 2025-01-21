@@ -1,13 +1,19 @@
+/**
+ * To use virtual keyboard in Angular, you can use the ngx-touch-keyboard package
+ * link: https://www.npmjs.com/package/ngx-touch-keyboard
+ */
+
 import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { interval } from 'rxjs';
+import { NgxTouchKeyboardModule } from 'ngx-touch-keyboard'
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NgxTouchKeyboardModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
