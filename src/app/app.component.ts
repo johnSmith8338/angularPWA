@@ -11,6 +11,8 @@ import { interval } from 'rxjs';
 import { NgxTouchKeyboardModule } from 'ngx-touch-keyboard'
 import { KeyboardEnComponent } from './keyboard/keyboard-en/keyboard-en.component';
 import { OskInputDirective } from './keyboard/osk-input.directive';
+import { KeyboardNumComponent } from './keyboard/keyboard-num/keyboard-num.component';
+import { KeyboardRuComponent } from './keyboard/keyboard-ru/keyboard-ru.component';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +21,8 @@ import { OskInputDirective } from './keyboard/osk-input.directive';
     RouterOutlet,
     NgxTouchKeyboardModule,
     KeyboardEnComponent,
+    KeyboardNumComponent,
+    KeyboardRuComponent,
     OskInputDirective,
   ],
   templateUrl: './app.component.html',

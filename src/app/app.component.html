@@ -50,5 +50,11 @@
 /> -->
 <!-- <button class="lang" (click)="switchLang()">{{ruLang()===false?'EN':'RU'}}</button> -->
 </div>
-<app-keyboard-en/>
+@if(true){
+  <app-keyboard-ru/>
+}@else if (false) {
+  <app-keyboard-en/>
+}@else {
+  <app-keyboard-num/>
+}
 <router-outlet />
