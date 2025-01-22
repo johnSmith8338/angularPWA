@@ -3,17 +3,24 @@
  * link: https://www.npmjs.com/package/ngx-touch-keyboard
  */
 
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, effect, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { interval } from 'rxjs';
 import { NgxTouchKeyboardModule } from 'ngx-touch-keyboard'
+import { KeyboardEnComponent } from './keyboard/keyboard-en/keyboard-en.component';
+import { OskInputDirective } from './keyboard/osk-input.directive';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgxTouchKeyboardModule],
+  imports: [
+    RouterOutlet,
+    NgxTouchKeyboardModule,
+    KeyboardEnComponent,
+    OskInputDirective,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -78,5 +85,14 @@ export class AppComponent {
     this.swUpdate.activateUpdate().then(() => {
       document.location.reload();
     });
+  }
+
+  /** language switch method */
+  ruLang = signal(false);
+  switchLang(event?: MouseEvent) {
+    if (event) {
+      event.preventDefault();
+    }
+    this.ruLang.set(!this.ruLang());
   }
 }

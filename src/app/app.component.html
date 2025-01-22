@@ -3,27 +3,7 @@
   <h3>Всем лучи добра</h3>
   @if(hide){
   <img src="assets/img/good.gif" alt="">
-  <hr>
-  <h4>Можем выслать на почту</h4>
-  <input
-    type="text"
-    inputmode="email"
-    ngxTouchKeyboard
-    ngxTouchKeyboardFullScreen
-    #emailKeyboard="ngxTouchKeyboard"
-    (focus)="emailKeyboard.openPanel()"
-  />
-  <h4>Или позвонить и рассказать</h4>
-  <input
-    type="text"
-    inputmode="tel"
-    ngxTouchKeyboard
-    ngxTouchKeyboardFullScreen
-    #telKeyboard="ngxTouchKeyboard"
-    (focus)="telKeyboard.openPanel()"
-  />
   }
-  <hr>
   <button (click)="show()">{{hide?'ДУМАЮ ХВАТИТ':'ПОСЛАТЬ'}}</button>
   @if(updateAvailable()){
   <!-- <div class="update">
@@ -45,4 +25,30 @@
   <p>Загрузка...</p>
 </div>
 }
+<div class="content">
+  <h4>Можем выслать на почту</h4>
+  <input appOskInput type="text">
+<!-- "Этот input с виртуальной клавиатурой создан при помощи плагина ngx-touch-keyboard" -->
+<!-- <input
+  type="text"
+  inputmode="email"
+  [ngxTouchKeyboard]="ruLang()===false?'en-EN':'ru-RU'"
+  ngxTouchKeyboardFullScreen
+  #emailKeyboard="ngxTouchKeyboard"
+  (focus)="emailKeyboard.openPanel()"
+/> -->
+<h4>Или позвонить и рассказать</h4>
+<input appOskInput type="tel">
+<!-- "Этот input с виртуальной клавиатурой создан при помощи плагина ngx-touch-keyboard" -->
+<!-- <input
+  type="text"
+  inputmode="tel"
+  ngxTouchKeyboard
+  ngxTouchKeyboardFullScreen
+  #telKeyboard="ngxTouchKeyboard"
+  (focus)="telKeyboard.openPanel()"
+/> -->
+<!-- <button class="lang" (click)="switchLang()">{{ruLang()===false?'EN':'RU'}}</button> -->
+</div>
+<app-keyboard-en/>
 <router-outlet />
