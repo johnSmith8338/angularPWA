@@ -1,4 +1,18 @@
 <div>
+  <button appKeyboardKey="ё    "></button>
+  <button appKeyboardKey="" class="hidden"></button>
+  <button appKeyboardKey="1    " class="darken"></button>
+  <button appKeyboardKey="2    " class="darken"></button>
+  <button appKeyboardKey="3    " class="darken"></button>
+  <button appKeyboardKey="4    " class="darken"></button>
+  <button appKeyboardKey="5    " class="darken"></button>
+  <button appKeyboardKey="6    " class="darken"></button>
+  <button appKeyboardKey="7    " class="darken"></button>
+  <button appKeyboardKey="8    " class="darken"></button>
+  <button appKeyboardKey="9    " class="darken"></button>
+  <button appKeyboardKey="0    " class="darken"></button>
+</div>
+<div>
     <button appKeyboardKey="й 1 ["></button>
     <button appKeyboardKey="ц 2 ]"></button>
     <button appKeyboardKey="у 3 {"></button>
@@ -14,12 +28,12 @@
 </div>
 <div>
     <button appKeyboardKey="ф - _"></button>
-    <button appKeyboardKey="ы / \"></button>
-    <button appKeyboardKey="в : |"></button>
-    <button appKeyboardKey="а ; ~"></button>
-    <button appKeyboardKey="п ( &lt;"></button>
-    <button appKeyboardKey="р ) &gt;"></button>
-    <button appKeyboardKey="о $ &euro;"></button>
+    <button appKeyboardKey="ы _ \"></button>
+    <button appKeyboardKey="в / |"></button>
+    <button appKeyboardKey="а : ~"></button>
+    <button appKeyboardKey="п ; &lt;"></button>
+    <button appKeyboardKey="р ( &gt;"></button>
+    <button appKeyboardKey="о ) &euro;"></button>
     <button appKeyboardKey="л & &pound;"></button>
     <button appKeyboardKey="д @ &yen;"></button>
     <button appKeyboardKey="ж    "></button>
@@ -44,6 +58,8 @@
     <button class="special" (click)="onAlt()">
       {{ keyboard.alt ? 'ABC' : '123' }}
     </button>
+    <button appKeyboardKey="@    "></button>
     <button class="spacebar" appKeyboardKey="&nbsp; &nbsp; &nbsp;"></button>
-    <button class="special wide" (click)="onEnter()">Enter</button>
+    <button appKeyboardKey=".    "></button>
+    <button class="special wide" (click)="onLang()">Eng</button>
 </div>

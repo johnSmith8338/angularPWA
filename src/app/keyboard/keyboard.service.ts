@@ -80,4 +80,8 @@ export class KeyboardService {
   fireEnterPressed() {
     this._enterPressed.next();
   }
+
+  fireLangPressed() {
+    alert('select language');
+  }
 }
