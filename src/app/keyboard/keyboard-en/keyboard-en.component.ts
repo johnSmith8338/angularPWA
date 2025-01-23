@@ -54,6 +54,10 @@ export class KeyboardEnComponent {
     this.keyboard.fireEnterPressed();
   }
 
+  onLang() {
+    this.keyboard.fireLangPressed();
+  }
+
   @HostListener('mousedown', ['$event'])
   @HostListener('click', ['$event'])
   onMouseEvent(event: MouseEvent) {
