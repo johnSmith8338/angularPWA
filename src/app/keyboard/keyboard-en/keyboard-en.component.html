@@ -1,16 +1,16 @@
 <div>
-  <button appKeyboardKey="1    " class="darken"></button>
-  <button appKeyboardKey="2    " class="darken"></button>
-  <button appKeyboardKey="3    " class="darken"></button>
-  <button appKeyboardKey="4    " class="darken"></button>
-  <button appKeyboardKey="5    " class="darken"></button>
-  <button appKeyboardKey="6    " class="darken"></button>
-  <button appKeyboardKey="7    " class="darken"></button>
-  <button appKeyboardKey="8    " class="darken"></button>
-  <button appKeyboardKey="9    " class="darken"></button>
-  <button appKeyboardKey="0    " class="darken"></button>
+  <button appKeyboardKey="1 1 1" class="darken"></button>
+  <button appKeyboardKey="2 2 2" class="darken"></button>
+  <button appKeyboardKey="3 3 3" class="darken"></button>
+  <button appKeyboardKey="4 4 4" class="darken"></button>
+  <button appKeyboardKey="5 5 5" class="darken"></button>
+  <button appKeyboardKey="6 6 6" class="darken"></button>
+  <button appKeyboardKey="7 7 7" class="darken"></button>
+  <button appKeyboardKey="8 8 8" class="darken"></button>
+  <button appKeyboardKey="9 9 9" class="darken"></button>
+  <button appKeyboardKey="0 0 0" class="darken"></button>
 </div>
-<div>
+<!-- <div>
     <button appKeyboardKey="q 1 ["></button>
     <button appKeyboardKey="w 2 ]"></button>
     <button appKeyboardKey="e 3 {"></button>
@@ -21,24 +21,39 @@
     <button appKeyboardKey="i 8 *"></button>
     <button appKeyboardKey="o 9 +"></button>
     <button appKeyboardKey="p 0 ="></button>
+</div> -->
+<div>
+  <button appKeyboardKey="q [ ["></button>
+  <button appKeyboardKey="w ] ]"></button>
+  <button appKeyboardKey="e { {"></button>
+  <button appKeyboardKey="r } }"></button>
+  <button appKeyboardKey="t # #"></button>
+  <button appKeyboardKey="y % %"></button>
+  <button appKeyboardKey="u ^ ^"></button>
+  <button appKeyboardKey="i * *"></button>
+  <button appKeyboardKey="o + +"></button>
+  <button appKeyboardKey="p = ="></button>
 </div>
 <div>
     <button appKeyboardKey="a - _"></button>
-    <button appKeyboardKey="s / \"></button>
+    <button appKeyboardKey="s _ \"></button>
     <button appKeyboardKey="d : |"></button>
     <button appKeyboardKey="f ; ~"></button>
     <button appKeyboardKey="g ( &lt;"></button>
     <button appKeyboardKey="h ) &gt;"></button>
-    <button appKeyboardKey="j $ &euro;"></button>
-    <button appKeyboardKey="k & &pound;"></button>
-    <button appKeyboardKey="l @ &yen;"></button>
+    <button appKeyboardKey="j / &euro;"></button>
+    <button appKeyboardKey="k \ &pound;"></button>
+    <button appKeyboardKey="l & &yen;"></button>
 </div>
 <div>
-    <button class="special" (click)="onShift()" [class.toggled]="keyboard.shift">
+    <!-- <button class="special" (click)="onShift()" [class.toggled]="keyboard.shift">
       {{ keyboard.alt ? '#+=' : 'Shift' }}
+    </button> -->
+    <button class="special" (click)="onAlt()">
+      {{ keyboard.alt ? 'ABC' : '#+=' }}
     </button>
     <button appKeyboardKey='z " "'></button>
-    <button appKeyboardKey="x . ."></button>
+    <button appKeyboardKey="x | ."></button>
     <button appKeyboardKey="c , ,"></button>
     <button appKeyboardKey="v ? ?"></button>
     <button appKeyboardKey="b ! !"></button>
@@ -47,9 +62,13 @@
     <button class="special" (click)="onBackspace()">Del</button>
 </div>
 <div>
-    <button class="special" (click)="onAlt()">
+    <!-- <button class="special" (click)="onAlt()">
       {{ keyboard.alt ? 'ABC' : '123' }}
-    </button>
+    </button> -->
+    <button class="special wide" (click)="onLang()">Рус</button>
+    <button appKeyboardKey="@ @ @"></button>
     <button class="spacebar" appKeyboardKey="&nbsp; &nbsp; &nbsp;"></button>
+    <button appKeyboardKey=". . ."></button>
+    <!-- <button class="special wide" (click)="onEnter()">Enter</button> -->
     <button class="special wide" (click)="onLang()">Рус</button>
 </div>

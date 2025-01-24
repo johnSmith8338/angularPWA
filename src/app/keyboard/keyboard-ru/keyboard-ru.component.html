@@ -1,30 +1,30 @@
 <div>
-  <button appKeyboardKey="ё    "></button>
+  <button appKeyboardKey="ё ~ ~"></button>
   <button appKeyboardKey="" class="hidden"></button>
-  <button appKeyboardKey="1    " class="darken"></button>
-  <button appKeyboardKey="2    " class="darken"></button>
-  <button appKeyboardKey="3    " class="darken"></button>
-  <button appKeyboardKey="4    " class="darken"></button>
-  <button appKeyboardKey="5    " class="darken"></button>
-  <button appKeyboardKey="6    " class="darken"></button>
-  <button appKeyboardKey="7    " class="darken"></button>
-  <button appKeyboardKey="8    " class="darken"></button>
-  <button appKeyboardKey="9    " class="darken"></button>
-  <button appKeyboardKey="0    " class="darken"></button>
+  <button appKeyboardKey="1 1 1" class="darken"></button>
+  <button appKeyboardKey="2 2 2" class="darken"></button>
+  <button appKeyboardKey="3 3 3" class="darken"></button>
+  <button appKeyboardKey="4 4 4" class="darken"></button>
+  <button appKeyboardKey="5 5 5" class="darken"></button>
+  <button appKeyboardKey="6 6 6" class="darken"></button>
+  <button appKeyboardKey="7 7 7" class="darken"></button>
+  <button appKeyboardKey="8 8 8" class="darken"></button>
+  <button appKeyboardKey="9 9 9" class="darken"></button>
+  <button appKeyboardKey="0 0 0" class="darken"></button>
 </div>
 <div>
-    <button appKeyboardKey="й 1 ["></button>
-    <button appKeyboardKey="ц 2 ]"></button>
-    <button appKeyboardKey="у 3 {"></button>
-    <button appKeyboardKey="к 4 }"></button>
-    <button appKeyboardKey="е 5 #"></button>
-    <button appKeyboardKey="н 6 %"></button>
-    <button appKeyboardKey="г 7 ^"></button>
-    <button appKeyboardKey="ш 8 *"></button>
-    <button appKeyboardKey="щ 9 +"></button>
-    <button appKeyboardKey="з 0 ="></button>
-    <button appKeyboardKey="х    "></button>
-    <button appKeyboardKey="ъ    "></button>
+    <button appKeyboardKey="й [ ["></button>
+    <button appKeyboardKey="ц ] ]"></button>
+    <button appKeyboardKey="у { {"></button>
+    <button appKeyboardKey="к } }"></button>
+    <button appKeyboardKey="е # #"></button>
+    <button appKeyboardKey="н % %"></button>
+    <button appKeyboardKey="г ^ ^"></button>
+    <button appKeyboardKey="ш * *"></button>
+    <button appKeyboardKey="щ + +"></button>
+    <button appKeyboardKey="з = ="></button>
+    <button appKeyboardKey="х &lt;  "></button>
+    <button appKeyboardKey="ъ &gt;  "></button>
 </div>
 <div>
     <button appKeyboardKey="ф - _"></button>
@@ -36,12 +36,15 @@
     <button appKeyboardKey="о ) &euro;"></button>
     <button appKeyboardKey="л & &pound;"></button>
     <button appKeyboardKey="д @ &yen;"></button>
-    <button appKeyboardKey="ж    "></button>
-    <button appKeyboardKey="э    "></button>
+    <button appKeyboardKey="ж \  "></button>
+    <button appKeyboardKey="э |  "></button>
 </div>
 <div>
-    <button class="special" (click)="onShift()" [class.toggled]="keyboard.shift">
+    <!-- <button class="special" (click)="onShift()" [class.toggled]="keyboard.shift">
       {{ keyboard.alt ? '#+=' : 'Shift' }}
+    </button> -->
+    <button class="special" (click)="onAlt()">
+      {{ keyboard.alt ? 'ABC' : '#+=' }}
     </button>
     <button appKeyboardKey='я " "'></button>
     <button appKeyboardKey="ч . ."></button>
@@ -50,16 +53,17 @@
     <button appKeyboardKey="и ! !"></button>
     <button appKeyboardKey="т ' '"></button>
     <button appKeyboardKey="ь ` `"></button>
-    <button appKeyboardKey="б    "></button>
-    <button appKeyboardKey="ю    "></button>
+    <button appKeyboardKey="б -  "></button>
+    <button appKeyboardKey="ю _  "></button>
     <button class="special" (click)="onBackspace()">Del</button>
 </div>
 <div>
-    <button class="special" (click)="onAlt()">
-      {{ keyboard.alt ? 'ABC' : '123' }}
-    </button>
-    <button appKeyboardKey="@    "></button>
+    <!-- <button class="special" (click)="onAlt()">
+      {{ keyboard.alt ? 'ABC' : '#+=' }}
+    </button> -->
+    <button class="special wide" (click)="onLang()">Eng</button>
+    <button appKeyboardKey="@ @ @"></button>
     <button class="spacebar" appKeyboardKey="&nbsp; &nbsp; &nbsp;"></button>
-    <button appKeyboardKey=".    "></button>
+    <button appKeyboardKey=". . ."></button>
     <button class="special wide" (click)="onLang()">Eng</button>
 </div>
