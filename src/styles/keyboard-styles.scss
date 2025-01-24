@@ -1,0 +1,81 @@
+:host {
+    --keyboard-background: #eee;
+    --button-background: #fff;
+    --button-background-active: #ccc;
+    --button-background-toggled: #555;
+    --button-background-spesial-active: #999;
+
+    --button-color: #333;
+    --button-color-toggled: #fff;
+
+    --button-size: 44px;
+    --button-size-spesial: 70px;
+    --button-size-space: 300px;
+
+    text-align: center;
+    background-color: var(--keyboard-background);
+    position: fixed;
+    // height: 200px;
+    width: 100%;
+    left: 0;
+    bottom: -100%;
+    padding: 20px 0;
+    transition: all 250ms ease-in-out;
+}
+
+:host(.shown) {
+    bottom: 0;
+}
+
+button {
+    width: var(--button-size);
+    height: var(--button-size);
+    margin: 4px 4px;
+    font-size: 20px;
+    vertical-align: top;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: var(--button-color);
+    background-color: var(--button-background);
+}
+
+button:active {
+    background-color: var(--button-background-active);
+}
+
+button.special {
+    width: var(--button-size-spesial);
+    background-color: var(--button-background-active);
+}
+
+button.special {
+    font-size: 14px;
+}
+
+button.special:active {
+    background-color: var(--button-background-spesial-active);
+}
+
+button.toggled {
+    background-color: var(--button-background-toggled);
+    color: var(--button-color-toggled);
+}
+
+button.wide {
+    width: var(--button-size-spesial);
+}
+
+button.spacebar {
+    width: var(--button-size-space);
+}
+
+button.darken {
+    background-color: var(--button-background-active);
+}
+
+button.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
