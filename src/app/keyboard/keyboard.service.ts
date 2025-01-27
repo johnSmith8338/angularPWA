@@ -1,6 +1,11 @@
 import { Injectable, signal } from '@angular/core';
 import { Subject } from 'rxjs';
 
+export interface LanguageList {
+  code: 'en' | 'ru';
+  label: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,6 +18,11 @@ export class KeyboardService {
   // private _keyPressed: Subject<string>;
   // private _backspacePressed: Subject<void>;
   // private _enterPressed: Subject<void>;
+  languageList: LanguageList[] = [
+    { code: 'en', label: 'Eng' },
+    { code: 'ru', label: 'Рус' },
+  ]
+
   shift = signal(false);
   alt = signal(false);
   keyboardRequested = signal(false);
@@ -89,12 +99,21 @@ export class KeyboardService {
   }
 
   setLangKeyboard() {
-    const nextLang = this.currentLang() === 'en' ? 'ru' : 'en';
-    this.currentLang.set(nextLang);
+    const currentLang = this.languageList.findIndex(lang => lang.code === this.currentLang());
+    const nextLang = (currentLang + 1) % this.languageList.length;
+    this.currentLang.set(this.languageList[nextLang].code);
     this.isNum.set(false);
   }
 
   setNumKeyboard() {
     this.isNum.set(true);
+  }
+
+  getNextLanguageLabel() {
+    // return this.languages.find(lang => lang.code === this.currentLang())?.label || 'Unknown';
+
+    const currentLang = this.languageList.findIndex(lang => lang.code === this.currentLang());
+    const nextLang = (currentLang + 1) % this.languageList.length;
+    return this.languageList[nextLang].label;
   }
 }

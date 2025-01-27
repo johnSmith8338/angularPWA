@@ -67,10 +67,10 @@
     <!-- <button class="special" (click)="onAlt()">
       {{ keyboard.alt ? 'ABC' : '123' }}
     </button> -->
-    <button class="special wide" (click)="onLang()">Рус</button>
+    <button class="special wide" (click)="onLang()">{{keyboard.getNextLanguageLabel()}}</button>
     <button appKeyboardKey="@ @ @"></button>
     <button class="spacebar" appKeyboardKey="&nbsp; &nbsp; &nbsp;"></button>
     <button appKeyboardKey=". . ."></button>
     <!-- <button class="special wide" (click)="onEnter()">Enter</button> -->
-    <button class="special wide" (click)="onLang()">Рус</button>
+    <button class="special wide" (click)="onLang()">{{keyboard.getNextLanguageLabel()}}</button>
 </div>
