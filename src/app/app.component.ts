@@ -13,6 +13,7 @@ import { KeyboardEnComponent } from './keyboard/keyboard-en/keyboard-en.componen
 import { OskInputDirective } from './keyboard/osk-input.directive';
 import { KeyboardNumComponent } from './keyboard/keyboard-num/keyboard-num.component';
 import { KeyboardRuComponent } from './keyboard/keyboard-ru/keyboard-ru.component';
+import { KeyboardService } from './keyboard/keyboard.service';
 
 @Component({
   selector: 'app-root',
@@ -30,6 +31,10 @@ import { KeyboardRuComponent } from './keyboard/keyboard-ru/keyboard-ru.componen
 })
 export class AppComponent {
   title = 'angularPWA';
+
+  keyboard = inject(KeyboardService);
+  isNum = this.keyboard.isNum;
+  currentLang = this.keyboard.currentLang;
 
   hide = false;
   show() {

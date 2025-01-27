@@ -43,8 +43,8 @@
     <!-- <button class="special" (click)="onShift()" [class.toggled]="keyboard.shift">
       {{ keyboard.alt ? '#+=' : 'Shift' }}
     </button> -->
-    <button class="special" (click)="onAlt()">
-      {{ keyboard.alt ? 'ABC' : '#+=' }}
+    <button class="special wide" (click)="onAlt()">
+      {{ keyboard.alt() ? 'ABC' : '#+=' }}
     </button>
     <button appKeyboardKey='я " "'></button>
     <button appKeyboardKey="ч . ."></button>
@@ -55,7 +55,9 @@
     <button appKeyboardKey="ь ` `"></button>
     <button appKeyboardKey="б -  "></button>
     <button appKeyboardKey="ю _  "></button>
-    <button class="special" (click)="onBackspace()">Del</button>
+    <button class="special wide" (click)="onBackspace()">
+      <span iconName="backspace"></span>
+    </button>
 </div>
 <div>
     <!-- <button class="special" (click)="onAlt()">

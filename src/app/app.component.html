@@ -1,4 +1,4 @@
-@defer (on timer(3s)) {
+@defer () {
 <div class="content">
   <h3>Всем лучи добра</h3>
   @if(hide){
@@ -51,11 +51,20 @@
 <!-- <button class="lang" (click)="switchLang()">{{ruLang()===false?'EN':'RU'}}</button> -->
 </div>
 
-@if(true){
-  <app-keyboard-ru/>
-}@else if (false) {
-  <app-keyboard-en/>
-}@else {
+@if(isNum()){
   <app-keyboard-num/>
+}@else {
+  @switch (currentLang()) {
+    @case ('ru') {
+      <app-keyboard-ru/>
+    }
+    @case ('en') {
+      <app-keyboard-en/>
+    }
+    @default {
+      <app-keyboard-en/>
+    }
+  }
 }
+
 <router-outlet />

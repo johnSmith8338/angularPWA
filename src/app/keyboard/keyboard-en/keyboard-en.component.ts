@@ -1,13 +1,15 @@
-import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, HostListener } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, ElementRef, HostBinding, HostListener } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { KeyboardService } from '../keyboard.service';
 import { KeyboardKeyDirective } from '../keyboard-key.directive';
+import { SvgIconDirective } from '../../directives/svg-icon.directive';
 
 @Component({
   selector: 'app-keyboard-en',
   standalone: true,
   imports: [
     KeyboardKeyDirective,
+    SvgIconDirective,
   ],
   templateUrl: './keyboard-en.component.html',
   styleUrl: './keyboard-en.component.scss',
@@ -15,35 +17,38 @@ import { KeyboardKeyDirective } from '../keyboard-key.directive';
 })
 export class KeyboardEnComponent {
   @HostBinding('class.shown')
-  private shown!: boolean;
+  private shown = false;
 
   private keyboardSubscription!: Subscription;
 
   constructor(private el: ElementRef, public keyboard: KeyboardService) {
-  }
-
-  ngOnInit() {
-    this.keyboardSubscription = this.keyboard.keyboardRequested.subscribe(show => {
-      if (show) {
-        this.shown = true;
-      }
-      else {
-        this.shown = false;
-      }
+    effect(() => {
+      this.shown = this.keyboard.keyboardRequested();
     });
   }
 
+  ngOnInit() {
+    // this.keyboardSubscription = this.keyboard.keyboardRequested.subscribe(show => {
+    //   if (show) {
+    //     this.shown = true;
+    //   }
+    //   else {
+    //     this.shown = false;
+    //   }
+    // });
+  }
+
   ngOnDestroy() {
-    this.keyboardSubscription.unsubscribe();
+    // this.keyboardSubscription.unsubscribe();
   }
 
   onShift() {
-    this.keyboard.shift = !this.keyboard.shift;
+    this.keyboard.shift.set(!this.keyboard.shift());
   }
 
   onAlt() {
-    this.keyboard.alt = !this.keyboard.alt;
-    this.keyboard.shift = false;
+    this.keyboard.alt.set(!this.keyboard.alt());
+    this.keyboard.shift.set(false);
   }
 
   onBackspace() {
@@ -55,7 +60,7 @@ export class KeyboardEnComponent {
   }
 
   onLang() {
-    this.keyboard.fireLangPressed();
+    this.keyboard.setLangKeyboard();
   }
 
   @HostListener('mousedown', ['$event'])
