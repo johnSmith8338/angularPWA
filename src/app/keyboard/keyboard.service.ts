@@ -32,7 +32,7 @@ export class KeyboardService {
 
   currentLang = signal<'en' | 'ru'>('en');
   isNum = signal(false);
-  langSwitched = signal(false);
+  // langSwitched = false;
 
   activeElement = signal<HTMLElement | null>(null);
 
@@ -102,13 +102,13 @@ export class KeyboardService {
   }
 
   setLangKeyboard() {
-    if (!this.langSwitched()) {
-      const currentLang = this.languageList.findIndex(lang => lang.code === this.currentLang());
-      const nextLang = (currentLang + 1) % this.languageList.length;
-      this.currentLang.set(this.languageList[nextLang].code);
-      this.isNum.set(false);
-      this.langSwitched.set(true);
-    }
+    // if (!this.langSwitched) {
+    const currentLang = this.languageList.findIndex(lang => lang.code === this.currentLang());
+    const nextLang = (currentLang + 1) % this.languageList.length;
+    this.currentLang.set(this.languageList[nextLang].code);
+    this.isNum.set(false);
+    //   this.langSwitched = true;
+    // }
   }
 
   setNumKeyboard() {
@@ -127,7 +127,7 @@ export class KeyboardService {
     this.activeElement.set(element);
   }
 
-  resetLangSwitched() {
-    this.langSwitched.set(false);
-  }
+  //   resetLangSwitched() {
+  //     this.langSwitched = false;
+  //   }
 }

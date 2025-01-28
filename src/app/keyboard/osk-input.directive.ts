@@ -66,6 +66,7 @@ export class OskInputDirective implements OnInit {
 
   @HostListener("blur")
   private onBlur() {
+    // this.keyboard.resetLangSwitched();
     this.keyboard.setActiveElement(null);
     this.keyboard.fireKeyboardRequested(false);
     // this.unsubscribeFromKeyboardEvents();
