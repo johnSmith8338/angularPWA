@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { computed, Injectable, Signal, signal } from '@angular/core';
 import { Subject } from 'rxjs';
 
 export interface LanguageList {
@@ -33,6 +33,12 @@ export class KeyboardService {
   currentLang = signal<'en' | 'ru'>('en');
   isNum = signal(false);
   // langSwitched = false;
+  currentLangIndex: Signal<number> = computed((): number => {
+    return this.languageList.findIndex(lang => lang.code === this.currentLang());
+  });
+  nextLangIndex: Signal<number> = computed((): number => {
+    return (this.currentLangIndex() + 1) % this.languageList.length;
+  });
 
   activeElement = signal<HTMLElement | null>(null);
 
@@ -103,9 +109,7 @@ export class KeyboardService {
 
   setLangKeyboard() {
     // if (!this.langSwitched) {
-    const currentLang = this.languageList.findIndex(lang => lang.code === this.currentLang());
-    const nextLang = (currentLang + 1) % this.languageList.length;
-    this.currentLang.set(this.languageList[nextLang].code);
+    this.currentLang.set(this.languageList[this.nextLangIndex()].code);
     this.isNum.set(false);
     //   this.langSwitched = true;
     // }
@@ -118,9 +122,7 @@ export class KeyboardService {
   getNextLanguageLabel() {
     // return this.languages.find(lang => lang.code === this.currentLang())?.label || '?';
 
-    const currentLang = this.languageList.findIndex(lang => lang.code === this.currentLang());
-    const nextLang = (currentLang + 1) % this.languageList.length;
-    return this.languageList[nextLang].label || '?';
+    return this.languageList[this.nextLangIndex()].label || '?';
   }
 
   setActiveElement(element: HTMLElement | null) {
