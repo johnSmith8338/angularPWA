@@ -14,20 +14,25 @@ export class OskInputDirective implements OnInit {
 
   constructor(private el: ElementRef, private keyboard: KeyboardService) {
     effect(() => {
-      const key = this.keyboard.keyPressed();
-      if (key) {
-        this.onKey(key);
+      const key = this.keyboard.keyPressed;
+      const activeElement = this.keyboard.activeElement();
+      if (key && activeElement === this.el.nativeElement) {
+        this.onKey(key());
         this.keyboard.keyPressed.set('');
       }
     }, { allowSignalWrites: true });
     effect(() => {
-      if (this.keyboard.backspacePressed()) {
+      const backspacePressed = this.keyboard.backspacePressed();
+      const activeElement = this.keyboard.activeElement();
+      if (backspacePressed && activeElement === this.el.nativeElement) {
         this.onBackspace();
         this.keyboard.backspacePressed.set(false);
       }
     }, { allowSignalWrites: true });
     effect(() => {
-      if (this.keyboard.enterPressed()) {
+      const enterPressed = this.keyboard.enterPressed();
+      const activeElement = this.keyboard.activeElement();
+      if (enterPressed && activeElement === this.el.nativeElement) {
         this.onEnter();
         this.keyboard.enterPressed.set(false);
       }
@@ -54,12 +59,14 @@ export class OskInputDirective implements OnInit {
       this.keyboard.setLangKeyboard();
     }
 
+    this.keyboard.setActiveElement(this.el.nativeElement);
     this.keyboard.fireKeyboardRequested(true);
     // this.subscribeToKeyboardEvents();
   }
 
   @HostListener("blur")
   private onBlur() {
+    this.keyboard.setActiveElement(null);
     this.keyboard.fireKeyboardRequested(false);
     // this.unsubscribeFromKeyboardEvents();
   }
@@ -90,7 +97,7 @@ export class OskInputDirective implements OnInit {
 
     this.measure.textContent = element.value.substring(0, start) + key;
     element.value = element.value.substring(0, start) + key + element.value.substring(end);
-    element.focus();
+    // element.focus();
     element.selectionStart = element.selectionEnd = start + 1;
 
     this.updateScrollPosition();
@@ -111,7 +118,7 @@ export class OskInputDirective implements OnInit {
 
     this.measure.textContent = element.value.substring(0, start);
     element.value = element.value.substring(0, start) + element.value.substring(end);
-    element.focus();
+    // element.focus();
     element.selectionStart = element.selectionEnd = start;
 
     this.updateScrollPosition();

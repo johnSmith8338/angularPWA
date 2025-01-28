@@ -33,6 +33,8 @@ export class KeyboardService {
   currentLang = signal<'en' | 'ru'>('en');
   isNum = signal(false);
 
+  activeElement = signal<HTMLElement | null>(null);
+
   constructor() {
     // this._keyboardRequested = new Subject<boolean>();
     // this._shiftChanged = new Subject<boolean>();
@@ -110,10 +112,14 @@ export class KeyboardService {
   }
 
   getNextLanguageLabel() {
-    // return this.languages.find(lang => lang.code === this.currentLang())?.label || 'Unknown';
+    // return this.languages.find(lang => lang.code === this.currentLang())?.label || '?';
 
     const currentLang = this.languageList.findIndex(lang => lang.code === this.currentLang());
     const nextLang = (currentLang + 1) % this.languageList.length;
-    return this.languageList[nextLang].label;
+    return this.languageList[nextLang].label || '?';
+  }
+
+  setActiveElement(element: HTMLElement | null) {
+    this.activeElement.set(element);
   }
 }

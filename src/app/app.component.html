@@ -26,7 +26,7 @@
 </div>
 }
 <div class="content">
-  <h4>Можем выслать на почту</h4>
+  <h4>input type="text"</h4>
   <input appOskInput type="text">
 <!-- "Этот input с виртуальной клавиатурой создан при помощи плагина ngx-touch-keyboard" -->
 <!-- <input
@@ -37,7 +37,7 @@
   #emailKeyboard="ngxTouchKeyboard"
   (focus)="emailKeyboard.openPanel()"
 /> -->
-<h4>Или позвонить и рассказать</h4>
+<h4>input type="tel"</h4>
 <input appOskInput type="tel">
 <!-- "Этот input с виртуальной клавиатурой создан при помощи плагина ngx-touch-keyboard" -->
 <!-- <input
@@ -49,6 +49,8 @@
   (focus)="telKeyboard.openPanel()"
 /> -->
 <!-- <button class="lang" (click)="switchLang()">{{ruLang()===false?'EN':'RU'}}</button> -->
+<h4>input type="text"</h4>
+<input appOskInput type="text">
 </div>
 
 @if(isNum()){
