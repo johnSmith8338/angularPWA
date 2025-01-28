@@ -32,7 +32,7 @@ export class KeyboardService {
 
   currentLang = signal<'en' | 'ru'>('en');
   isNum = signal(false);
-  // langSwitched = false;
+
   currentLangIndex: Signal<number> = computed((): number => {
     return this.languageList.findIndex(lang => lang.code === this.currentLang());
   });
@@ -108,16 +108,13 @@ export class KeyboardService {
   }
 
   setLangKeyboard() {
-    // if (!this.langSwitched) {
     this.currentLang.set(this.languageList[this.nextLangIndex()].code);
-    this.isNum.set(false);
-    //   this.langSwitched = true;
-    // }
+    // this.isNum.set(false);
   }
 
-  setNumKeyboard() {
-    this.isNum.set(true);
-  }
+  // setNumKeyboard() {
+  //   this.isNum.set(true);
+  // }
 
   getNextLanguageLabel() {
     // return this.languages.find(lang => lang.code === this.currentLang())?.label || '?';
@@ -128,8 +125,4 @@ export class KeyboardService {
   setActiveElement(element: HTMLElement | null) {
     this.activeElement.set(element);
   }
-
-  //   resetLangSwitched() {
-  //     this.langSwitched = false;
-  //   }
 }

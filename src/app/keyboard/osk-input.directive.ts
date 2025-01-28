@@ -54,9 +54,7 @@ export class OskInputDirective implements OnInit {
     const inputType = this.el.nativeElement.getAttribute("type");
     // console.log("inputType", inputType);
     if (inputType === 'tel') {
-      this.keyboard.setNumKeyboard();
-    } else {
-      this.keyboard.setLangKeyboard();
+      this.keyboard.isNum.set(true);
     }
 
     this.keyboard.setActiveElement(this.el.nativeElement);
@@ -66,7 +64,7 @@ export class OskInputDirective implements OnInit {
 
   @HostListener("blur")
   private onBlur() {
-    // this.keyboard.resetLangSwitched();
+    this.keyboard.isNum.set(false);
     this.keyboard.setActiveElement(null);
     this.keyboard.fireKeyboardRequested(false);
     // this.unsubscribeFromKeyboardEvents();
@@ -126,7 +124,6 @@ export class OskInputDirective implements OnInit {
   }
 
   private updateScrollPosition() {
-    // let element = this.el.nativeElement;
     const element = this.el.nativeElement as HTMLInputElement;
     element.scrollLeft = this.measure.offsetWidth - (element.clientWidth - 10);
   }
