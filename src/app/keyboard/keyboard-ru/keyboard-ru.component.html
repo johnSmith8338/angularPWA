@@ -13,59 +13,53 @@
   <button appKeyboardKey="0 0 0" class="darken"></button>
 </div>
 <div>
-    <button appKeyboardKey="й [ ["></button>
-    <button appKeyboardKey="ц ] ]"></button>
-    <button appKeyboardKey="у { {"></button>
-    <button appKeyboardKey="к } }"></button>
-    <button appKeyboardKey="е # #"></button>
-    <button appKeyboardKey="н % %"></button>
-    <button appKeyboardKey="г ^ ^"></button>
-    <button appKeyboardKey="ш * *"></button>
-    <button appKeyboardKey="щ + +"></button>
-    <button appKeyboardKey="з = ="></button>
-    <button appKeyboardKey="х &lt;  "></button>
-    <button appKeyboardKey="ъ &gt;  "></button>
+  <button appKeyboardKey="й [ ["></button>
+  <button appKeyboardKey="ц ] ]"></button>
+  <button appKeyboardKey="у { {"></button>
+  <button appKeyboardKey="к } }"></button>
+  <button appKeyboardKey="е # #"></button>
+  <button appKeyboardKey="н % %"></button>
+  <button appKeyboardKey="г ^ ^"></button>
+  <button appKeyboardKey="ш * *"></button>
+  <button appKeyboardKey="щ + +"></button>
+  <button appKeyboardKey="з = ="></button>
+  <button appKeyboardKey="х &lt;  "></button>
+  <button appKeyboardKey="ъ &gt;  "></button>
 </div>
 <div>
-    <button appKeyboardKey="ф - _"></button>
-    <button appKeyboardKey="ы _ \"></button>
-    <button appKeyboardKey="в / |"></button>
-    <button appKeyboardKey="а : ~"></button>
-    <button appKeyboardKey="п ; &lt;"></button>
-    <button appKeyboardKey="р ( &gt;"></button>
-    <button appKeyboardKey="о ) &euro;"></button>
-    <button appKeyboardKey="л & &pound;"></button>
-    <button appKeyboardKey="д @ &yen;"></button>
-    <button appKeyboardKey="ж \  "></button>
-    <button appKeyboardKey="э |  "></button>
+  <button appKeyboardKey="ф - _"></button>
+  <button appKeyboardKey="ы _ \"></button>
+  <button appKeyboardKey="в / |"></button>
+  <button appKeyboardKey="а : ~"></button>
+  <button appKeyboardKey="п ; &lt;"></button>
+  <button appKeyboardKey="р ( &gt;"></button>
+  <button appKeyboardKey="о ) &euro;"></button>
+  <button appKeyboardKey="л & &pound;"></button>
+  <button appKeyboardKey="д @ &yen;"></button>
+  <button appKeyboardKey="ж \  "></button>
+  <button appKeyboardKey="э |  "></button>
 </div>
 <div>
-    <!-- <button class="special" (click)="onShift()" [class.toggled]="keyboard.shift">
-      {{ keyboard.alt ? '#+=' : 'Shift' }}
-    </button> -->
-    <button class="special wide" (click)="onAlt()">
-      {{ alt() ? 'ABC' : '#+=' }}
-    </button>
-    <button appKeyboardKey='я " "'></button>
-    <button appKeyboardKey="ч . ."></button>
-    <button appKeyboardKey="с , ,"></button>
-    <button appKeyboardKey="м ? ?"></button>
-    <button appKeyboardKey="и ! !"></button>
-    <button appKeyboardKey="т ' '"></button>
-    <button appKeyboardKey="ь ` `"></button>
-    <button appKeyboardKey="б -  "></button>
-    <button appKeyboardKey="ю _  "></button>
-    <button class="special wide" (click)="onBackspace()">
-      <span iconName="backspace"></span>
-    </button>
+  <button class="special wide" (click)="onAlt()">
+    {{ alt() ? 'ABC' : '#+=' }}
+  </button>
+  <button appKeyboardKey='я " "'></button>
+  <button appKeyboardKey="ч . ."></button>
+  <button appKeyboardKey="с , ,"></button>
+  <button appKeyboardKey="м ? ?"></button>
+  <button appKeyboardKey="и ! !"></button>
+  <button appKeyboardKey="т ' '"></button>
+  <button appKeyboardKey="ь ` `"></button>
+  <button appKeyboardKey="б -  "></button>
+  <button appKeyboardKey="ю _  "></button>
+  <button class="special wide" (click)="onBackspace()">
+    <span iconName="backspace"></span>
+  </button>
 </div>
 <div>
-    <!-- <button class="special" (click)="onAlt()">
-      {{ keyboard.alt ? 'ABC' : '#+=' }}
-    </button> -->
-    <button class="special wide" (click)="onLang()">{{keyboardSvc.getNextLanguageLabel()}}</button>
-    <button appKeyboardKey="@ @ @"></button>
-    <button class="spacebar" appKeyboardKey="&nbsp; &nbsp; &nbsp;"></button>
-    <button appKeyboardKey=". . ."></button>
-    <button class="special wide" (click)="onLang()">{{keyboardSvc.getNextLanguageLabel()}}</button>
+  <button class="special wide" (click)="onLang()">{{keyboardSvc.getNextLanguageLabel()}}</button>
+  <button appKeyboardKey="@ @ @"></button>
+  <button class="spacebar" appKeyboardKey="&nbsp; &nbsp; &nbsp;"></button>
+  <button appKeyboardKey=". . ."></button>
+  <button class="special wide" (click)="onLang()">{{keyboardSvc.getNextLanguageLabel()}}</button>
 </div>
