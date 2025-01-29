@@ -10,10 +10,6 @@ p {
     text-align: center;
 }
 
-h4 {
-    margin-bottom: -24px;
-}
-
 .content {
     display: grid;
     justify-content: center;
@@ -62,4 +58,20 @@ h4 {
     position: fixed;
     top: 16px;
     right: 16px;
+}
+
+//INPUT STYLES
+
+form {
+    display: grid;
+    gap: 16px;
+}
+
+.input-field {
+    display: grid;
+    gap: 4px;
+}
+
+button[type='submit'] {
+    margin-top: 2em;
 }

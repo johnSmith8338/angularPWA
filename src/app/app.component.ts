@@ -14,6 +14,9 @@ import { OskInputDirective } from './keyboard/osk-input.directive';
 import { KeyboardNumComponent } from './keyboard/keyboard-num/keyboard-num.component';
 import { KeyboardRuComponent } from './keyboard/keyboard-ru/keyboard-ru.component';
 import { KeyboardService } from './keyboard/keyboard.service';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormService } from './services/form.service';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +28,7 @@ import { KeyboardService } from './keyboard/keyboard.service';
     KeyboardNumComponent,
     KeyboardRuComponent,
     OskInputDirective,
+    ReactiveFormsModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -35,6 +39,15 @@ export class AppComponent {
   keyboard = inject(KeyboardService);
   isNum = this.keyboard.isNum;
   currentLang = this.keyboard.currentLang;
+
+  formSvc = inject(FormService);
+  form!: FormGroup;
+  ngOnInit() {
+    this.form = this.formSvc.form;
+  }
+  onSubmit() {
+    this.formSvc.onSubmit();
+  }
 
   hide = false;
   show() {

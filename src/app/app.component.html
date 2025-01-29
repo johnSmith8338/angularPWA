@@ -26,8 +26,17 @@
 </div>
 }
 <div class="content">
-  <h4>input type="text"</h4>
-  <input appOskInput type="text">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="input-field">
+      <label for="email">Email</label>
+      <input appOskInput type="text" id="email" placeholder="email" formControlName="email"/>
+    </div>
+    <div class="input-field">
+      <label for="phone">Phone</label>
+      <input appOskInput type="tel" id="phone" placeholder="phone" formControlName="phone"/>
+    </div>
+    <button type="submit">Send</button>
+  </form>
 <!-- "Этот input с виртуальной клавиатурой создан при помощи плагина ngx-touch-keyboard" -->
 <!-- <input
   type="text"
@@ -37,8 +46,6 @@
   #emailKeyboard="ngxTouchKeyboard"
   (focus)="emailKeyboard.openPanel()"
 /> -->
-<h4>input type="tel"</h4>
-<input appOskInput type="tel">
 <!-- "Этот input с виртуальной клавиатурой создан при помощи плагина ngx-touch-keyboard" -->
 <!-- <input
   type="text"
@@ -49,8 +56,6 @@
   (focus)="telKeyboard.openPanel()"
 /> -->
 <!-- <button class="lang" (click)="switchLang()">{{ruLang()===false?'EN':'RU'}}</button> -->
-<h4>input type="text"</h4>
-<input appOskInput type="text">
 </div>
 
 @if(isNum()){
