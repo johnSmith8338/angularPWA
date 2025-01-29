@@ -1,11 +1,12 @@
-import { Directive, effect, HostBinding, HostListener, Input, OnDestroy, OnInit, signal } from '@angular/core';
+import { Directive, effect, HostBinding, HostListener, inject, Input, OnDestroy, OnInit, signal } from '@angular/core';
 import { KeyboardService } from './keyboard.service';
 
 @Directive({
   selector: '[appKeyboardKey]',
   standalone: true,
 })
-export class KeyboardKeyDirective implements OnInit, OnDestroy {
+export class KeyboardKeyDirective implements OnInit {
+  keyboardSvc = inject(KeyboardService);
   private _values: string[] = [];
   private isShifted = signal(false);
   private isAlt = signal(false);
@@ -14,63 +15,26 @@ export class KeyboardKeyDirective implements OnInit, OnDestroy {
 
   @HostBinding('innerText') currentValue: string = '';
 
-  constructor(private keyboard: KeyboardService) {
-    // console.log('values', this.values);
-
-    // if (!this.values) return;
-
-    // this._values = this.values.split(' ');
-    // this.currentValue = this._values[0] || '';
-
+  constructor() {
     effect(() => {
-      this.isShifted.set(this.keyboard.shift());
+      this.isShifted.set(this.keyboardSvc.shift());
       this.updateCurrentValue();
     }, { allowSignalWrites: true });
+
     effect(() => {
-      this.isAlt.set(this.keyboard.alt());
+      this.isAlt.set(this.keyboardSvc.alt());
       this.updateCurrentValue();
     }, { allowSignalWrites: true });
   }
 
   ngOnInit() {
-    // console.log('values', this.values);
     if (!this.values) return;
 
     this._values = this.values.split(' ');
     this.currentValue = this._values[0] || '';
-
-    //   this.keyboard.shiftChanged.subscribe(shift => {
-    //     this.isShifted = shift;
-    //     this.updateCurrentValue();
-    //   });
-    //   this.keyboard.altChanged.subscribe(alt => {
-    //     this.isAlt = alt;
-    //     this.updateCurrentValue();
-    //   });
-  }
-
-  ngOnDestroy() {
-    // this.keyboard.shiftChanged.unsubscribe();
-    // this.keyboard.altChanged.unsubscribe();
   }
 
   updateCurrentValue() {
-    // if (!this.isAlt) {
-    //   if (!this.isShifted) {
-    //     this.currentValue = this._values[0];
-    //   }
-    //   else {
-    //     this.currentValue = this._values[0].toUpperCase();
-    //   }
-    // }
-    // else {
-    //   if (!this.isShifted) {
-    //     this.currentValue = this._values[1];
-    //   }
-    //   else {
-    //     this.currentValue = this._values[2];
-    //   }
-    // }
     const shift = this.isShifted();
     const alt = this.isAlt();
     if (!alt) {
@@ -82,6 +46,6 @@ export class KeyboardKeyDirective implements OnInit, OnDestroy {
 
   @HostListener('click')
   onClick() {
-    this.keyboard.fireKeyPressed(this.currentValue);
+    this.keyboardSvc.fireKeyPressed(this.currentValue);
   }
 }

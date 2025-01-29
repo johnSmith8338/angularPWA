@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, effect, ElementRef, HostBinding, HostListener } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, ElementRef, HostBinding, HostListener, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { KeyboardService } from '../keyboard.service';
 import { KeyboardKeyDirective } from '../keyboard-key.directive';
@@ -16,51 +16,38 @@ import { SvgIconDirective } from '../../directives/svg-icon.directive';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class KeyboardNumComponent {
-  @HostBinding('class.shown')
-  private shown = false;
+  keyboardSvc = inject(KeyboardService);
 
-  private keyboardSubscription!: Subscription;
+  alt = this.keyboardSvc.alt;
+  shift = this.keyboardSvc.shift;
 
-  constructor(private el: ElementRef, public keyboard: KeyboardService) {
+  @HostBinding('class.shown') private shown = false;
+
+  constructor() {
     effect(() => {
-      this.shown = this.keyboard.keyboardRequested();
+      this.shown = this.keyboardSvc.keyboardRequested();
     });
   }
 
-  ngOnInit() {
-    // this.keyboardSubscription = this.keyboard.keyboardRequested.subscribe(show => {
-    //   if (show) {
-    //     this.shown = true;
-    //   }
-    //   else {
-    //     this.shown = false;
-    //   }
-    // });
-  }
-
-  ngOnDestroy() {
-    // this.keyboardSubscription.unsubscribe();
-  }
-
   onShift() {
-    this.keyboard.shift.set(!this.keyboard.shift());
+    this.shift.set(!this.shift());
   }
 
   onAlt() {
-    this.keyboard.alt.set(!this.keyboard.alt());
-    this.keyboard.shift.set(false);
+    this.alt.set(!this.alt());
+    this.shift.set(false);
   }
 
   onBackspace() {
-    this.keyboard.fireBackspacePressed();
+    this.keyboardSvc.fireBackspacePressed();
   }
 
   onEnter() {
-    this.keyboard.fireEnterPressed();
+    this.keyboardSvc.fireEnterPressed();
   }
 
   onLang() {
-    this.keyboard.setLangKeyboard();
+    this.keyboardSvc.setLangKeyboard();
   }
 
   @HostListener('mousedown', ['$event'])
